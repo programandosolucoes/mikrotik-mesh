@@ -1,0 +1,12 @@
+services:
+  mesh-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: mikrotik-mesh-e2e-test
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    network_mode: bridge

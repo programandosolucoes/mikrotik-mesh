@@ -1,0 +1,21 @@
+[package]
+name = "mkt-php"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+mkt-proto = { path = "../mkt-proto" }
+mkt-crypto = { path = "../mkt-crypto" }
+mkt-net = { path = "../mkt-net" }
+mkt-core = { path = "../mkt-core" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+anyhow.workspace = true
+libc = "0.2"

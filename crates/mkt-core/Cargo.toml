@@ -1,0 +1,26 @@
+[package]
+name = "mkt-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+mkt-proto = { path = "../mkt-proto" }
+mkt-crypto = { path = "../mkt-crypto" }
+mkt-net = { path = "../mkt-net" }
+tokio.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+rand.workspace = true
+
+[[test]]
+name = "e2e_ping_traffic"
+path = "../../tests/e2e_ping_traffic.rs"
+
+[[test]]
+name = "legacy_and_stun_integration"
+path = "../../tests/legacy_and_stun_integration.rs"

@@ -1,0 +1,25 @@
+[package]
+name = "mkt-net"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+mkt-proto = { path = "../mkt-proto" }
+mkt-crypto = { path = "../mkt-crypto" }
+thiserror.workspace = true
+
+anyhow.workspace = true
+tokio.workspace = true
+socket2.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+byteorder.workspace = true
+
+[target.'cfg(target_os = "linux")'.dependencies]
+libc = "0.2"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_Foundation", "Win32_Networking_WinSock"] }

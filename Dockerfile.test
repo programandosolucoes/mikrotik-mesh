@@ -1,0 +1,29 @@
+FROM rust:slim
+
+# Install networking utilities, ping, iproute2 and procps for Linux network testing
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        iproute2 \
+        iptables \
+        iputils-ping \
+        net-tools \
+        socat \
+        curl \
+        procps \
+        kmod && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy project source code
+COPY . .
+
+# Build mkt-cli in release mode and pre-compile tests
+RUN cargo build --release -p mkt-cli && \
+    cargo test --test e2e_ping_traffic --no-run
+
+# Fix line endings and permissions on entrypoint script
+RUN sed -i 's/\r$//' docker-test-entrypoint.sh && \
+    chmod +x docker-test-entrypoint.sh
+
+ENTRYPOINT ["/app/docker-test-entrypoint.sh"]

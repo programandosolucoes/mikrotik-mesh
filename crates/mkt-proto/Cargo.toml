@@ -1,0 +1,15 @@
+[package]
+name = "mkt-proto"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+byteorder.workspace = true
+serde.workspace = true
+rand.workspace = true
+
+[dev-dependencies]
+rand.workspace = true

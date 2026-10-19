@@ -1,0 +1,23 @@
+[package]
+name = "mkt-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "mkt-cli"
+path = "src/main.rs"
+
+[dependencies]
+mkt-proto = { path = "../mkt-proto" }
+mkt-crypto = { path = "../mkt-crypto" }
+mkt-net = { path = "../mkt-net" }
+mkt-core = { path = "../mkt-core" }
+clap.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+anyhow.workspace = true
+crossterm.workspace = true
+serde_json.workspace = true
